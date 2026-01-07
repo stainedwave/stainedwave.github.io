@@ -46,6 +46,33 @@ body{
   font-size:14px;
 }
 
+/* ===== Mobile Drawer ===== */
+.drawer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.95);
+  z-index: 1000;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+
+.drawer-inner {
+  padding: 80px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 開いたとき */
+body.is-drawer-open .drawer {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
 .nav{ display:flex; gap:22px; align-items:center; }
 .nav a{
   color:var(--fg);
