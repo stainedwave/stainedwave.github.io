@@ -21,10 +21,10 @@ window.addEventListener('pageshow', (e) => {
   const drawer = document.getElementById("drawer");
 
   const setDrawer = (open) => {
-    hamburger?.setAttribute("aria-expanded", String(open));
-    drawer?.setAttribute("aria-hidden", String(!open));
-    document.body.classList.toggle("is-drawer-open", open);
-  };
+  hamburger?.setAttribute("aria-expanded", String(open));
+  drawer?.setAttribute("aria-hidden", String(!open));
+  drawer?.classList.toggle("is-open", open); // ← これ追加
+};
 
   hamburger?.addEventListener("click", () => {
     const isOpen = hamburger.getAttribute("aria-expanded") === "true";
