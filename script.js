@@ -5,13 +5,14 @@ if ('scrollRestoration' in history) {
 window.addEventListener('pageshow', (e) => {
   if (e.persisted) return;
   if (location.hash) return;
-
   requestAnimationFrame(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   });
 });
 
-(() => {
+// すべてのHTML要素が読み込まれてから実行されるようにガードします
+document.addEventListener("DOMContentLoaded", () => {
+  
   // ----- Mobile menu -----
   const hamburger = document.getElementById("hamburger");
   const drawer = document.getElementById("drawer");
@@ -21,7 +22,6 @@ window.addEventListener('pageshow', (e) => {
     hamburger.setAttribute("aria-expanded", String(open));
     drawer.setAttribute("aria-hidden", String(!open));
     
-    // クラスの付け外しでCSSアニメーションを制御
     if (open) {
       drawer.classList.add("is-open");
     } else {
@@ -29,12 +29,16 @@ window.addEventListener('pageshow', (e) => {
     }
   };
 
-  hamburger?.addEventListener("click", () => {
-    // 現在開いているかどうかをクラスの存在で判定
-    const isOpen = drawer?.classList.contains("is-open");
-    setDrawer(!isOpen);
-  });
+  // ハンバーガーが存在する場合のみイベントを登録
+  if (hamburger) {
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation(); // クリックイベントの伝播を防ぐ
+      const isOpen = drawer?.classList.contains("is-open");
+      setDrawer(!isOpen);
+    });
+  }
 
+  // ドロワーの外側やリンクをクリックした時に閉じる
   drawer?.addEventListener("click", (e) => {
     const a = e.target.closest("a");
     if (a) setDrawer(false);
@@ -60,7 +64,6 @@ window.addEventListener('pageshow', (e) => {
   const renderDots = () => {
     if (!dotsWrap) return;
     dotsWrap.innerHTML = "";
-
     slides.forEach((_, i) => {
       const b = document.createElement("button");
       b.type = "button";
@@ -74,7 +77,6 @@ window.addEventListener('pageshow', (e) => {
   const setActive = (next) => {
     slides.forEach((s, i) => s.classList.toggle("is-active", i === next));
     index = next;
-
     if (dotsWrap) {
       const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
       dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
@@ -109,11 +111,10 @@ window.addEventListener('pageshow', (e) => {
   nextBtn?.addEventListener("click", () => goTo(index + 1, true));
   prevBtn?.addEventListener("click", () => goTo(index - 1, true));
 
-  // hoverで止めたいなら有効化
   slider.addEventListener("mouseenter", stop);
   slider.addEventListener("mouseleave", start);
 
   renderDots();
   setActive(index);
   start();
-})();
+});
