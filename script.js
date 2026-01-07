@@ -11,23 +11,27 @@ window.addEventListener('pageshow', (e) => {
   });
 });
 
-
-
-
-
 (() => {
   // ----- Mobile menu -----
   const hamburger = document.getElementById("hamburger");
   const drawer = document.getElementById("drawer");
 
   const setDrawer = (open) => {
-  hamburger?.setAttribute("aria-expanded", String(open));
-  drawer?.setAttribute("aria-hidden", String(!open));
-  drawer?.classList.toggle("is-open", open); // ← これ追加
-};
+    if (!hamburger || !drawer) return;
+    hamburger.setAttribute("aria-expanded", String(open));
+    drawer.setAttribute("aria-hidden", String(!open));
+    
+    // クラスの付け外しでCSSアニメーションを制御
+    if (open) {
+      drawer.classList.add("is-open");
+    } else {
+      drawer.classList.remove("is-open");
+    }
+  };
 
   hamburger?.addEventListener("click", () => {
-    const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+    // 現在開いているかどうかをクラスの存在で判定
+    const isOpen = drawer?.classList.contains("is-open");
     setDrawer(!isOpen);
   });
 
