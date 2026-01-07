@@ -1,80 +1,98 @@
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
-}
-window.scrollTo(0, 0);
-// ===== Mobile menu =====
-const hamburger = document.getElementById("hamburger");
-const drawer = document.getElementById("drawer");
+(() => {
+  // ----- Mobile menu -----
+  const hamburger = document.getElementById("hamburger");
+  const drawer = document.getElementById("drawer");
 
-function setDrawer(open) {
-  drawer.classList.toggle("is-open", open);
-  drawer.setAttribute("aria-hidden", String(!open));
-  hamburger.setAttribute("aria-expanded", String(open));
-}
+  const setDrawer = (open) => {
+    hamburger?.setAttribute("aria-expanded", String(open));
+    drawer?.setAttribute("aria-hidden", String(!open));
+    document.body.classList.toggle("is-drawer-open", open);
+  };
 
-hamburger?.addEventListener("click", () => {
-  const isOpen = drawer.classList.contains("is-open");
-  setDrawer(!isOpen);
-});
-
-// メニュークリックで閉じる
-drawer?.addEventListener("click", (e) => {
-  const a = e.target.closest("a");
-  if (!a) return;
-  setDrawer(false);
-});
-
-// ===== Slider =====
-const slider = document.getElementById("slider");
-const slides = Array.from(document.querySelectorAll(".slide"));
-const prev = document.getElementById("prev");
-const next = document.getElementById("next");
-const dots = document.getElementById("dots");
-
-let idx = 0;
-let timer = null;
-const intervalMs = 6000;
-
-function renderDots() {
-  if (!dots) return;
-  dots.innerHTML = "";
-  slides.forEach((_, i) => {
-    const b = document.createElement("button");
-    b.className = "dot" + (i === idx ? " is-active" : "");
-    b.setAttribute("aria-label", `Go to slide ${i + 1}`);
-    b.addEventListener("click", () => go(i));
-    dots.appendChild(b);
+  hamburger?.addEventListener("click", () => {
+    const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+    setDrawer(!isOpen);
   });
-}
 
-function show(i) {
-  slides.forEach((s) => s.classList.remove("is-active"));
-  slides[i].classList.add("is-active");
-  idx = i;
+  drawer?.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (a) setDrawer(false);
+  });
+
+  // ----- Slider -----
+  const slider = document.getElementById("slider");
+  if (!slider) return;
+
+  const slides = Array.from(slider.querySelectorAll(".slide"));
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+  const dotsWrap = document.getElementById("dots");
+
+  if (slides.length === 0) return;
+
+  let index = Math.max(0, slides.findIndex((s) => s.classList.contains("is-active")));
+  if (index === -1) index = 0;
+
+  let timer = null;
+  const INTERVAL = 6000;
+
+  const renderDots = () => {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = "";
+
+    slides.forEach((_, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "dot" + (i === index ? " is-active" : "");
+      b.setAttribute("aria-label", `Go to slide ${i + 1}`);
+      b.addEventListener("click", () => goTo(i, true));
+      dotsWrap.appendChild(b);
+    });
+  };
+
+  const setActive = (next) => {
+    slides.forEach((s, i) => s.classList.toggle("is-active", i === next));
+    index = next;
+
+    if (dotsWrap) {
+      const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+    }
+  };
+
+  const goTo = (next, userAction = false) => {
+    const n = ((next % slides.length) + slides.length) % slides.length;
+    setActive(n);
+    if (userAction) restart();
+  };
+
+  const next = () => goTo(index + 1);
+  const prev = () => goTo(index - 1);
+
+  const start = () => {
+    stop();
+    timer = window.setInterval(next, INTERVAL);
+  };
+
+  const stop = () => {
+    if (timer) {
+      window.clearInterval(timer);
+      timer = null;
+    }
+  };
+
+  const restart = () => {
+    start();
+  };
+
+  nextBtn?.addEventListener("click", () => goTo(index + 1, true));
+  prevBtn?.addEventListener("click", () => goTo(index - 1, true));
+
+  // hoverで止めたいなら有効化
+  slider.addEventListener("mouseenter", stop);
+  slider.addEventListener("mouseleave", start);
+
   renderDots();
-}
-
-function go(i) {
-  const n = (i + slides.length) % slides.length;
-  show(n);
-  restart();
-}
-
-function restart() {
-  if (timer) clearInterval(timer);
-  timer = setInterval(() => go(idx + 1), intervalMs);
-}
-
-prev?.addEventListener("click", () => go(idx - 1));
-next?.addEventListener("click", () => go(idx + 1));
-
-// スライダーに触ってる間は止めたいならこのへんも足せる
-slider?.addEventListener("mouseenter", () => timer && clearInterval(timer));
-slider?.addEventListener("mouseleave", () => restart());
-
-show(0);
-restart();
-
-// ===== Footer year =====
-const year = document.getElementById("year");
-if (year) year.textContent = String(new Date().getFullYear());
+  setActive(index);
+  start();
+})();
