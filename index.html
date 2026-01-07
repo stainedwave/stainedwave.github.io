@@ -7,6 +7,7 @@
   <meta name="description" content="stainedwave Official Band Site" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <!-- Header -->
   <header class="site-header" id="top">
@@ -19,12 +20,12 @@
         <a href="#discography">DISCOGRAPHY</a>
         <a href="#gallery">GALLERY</a>
         <a href="#blog">BLOG</a>
-        <a class="cta"
-           href="https://docs.google.com/forms/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/viewform?usp=header"
-           target="_blank"
-           rel="noopener noreferrer">CONTACT</a>
-
-
+        <a
+          class="cta"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/viewform?usp=header"
+          target="_blank"
+          rel="noopener noreferrer"
+        >CONTACT</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -38,22 +39,23 @@
         <a href="#discography">DISCOGRAPHY</a>
         <a href="#gallery">GALLERY</a>
         <a href="#blog">BLOG</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/viewform?usp=header"
-           target="_blank"
-           rel="noopener noreferrer"> CONTACT</a>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/viewform?usp=header"
+          target="_blank"
+          rel="noopener noreferrer"
+        >CONTACT</a>
+
         <div class="drawer-links">
           <a href="#" aria-label="Instagram">IG</a>
           <a href="#" aria-label="YouTube">YT</a>
           <a href="#" aria-label="X">X</a>
-
-
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Hero / Slider -->
   <main>
+    <!-- Hero / Slider -->
     <section class="hero" aria-label="Featured">
       <div class="slider" id="slider">
         <div class="slides">
@@ -65,7 +67,8 @@
               <p class="sub">Available now</p>
               <div class="actions">
                 <a class="btn" href="#discography">Listen</a>
-                <a class="btn ghost" href="#news">Latest News</a>
+                <!-- #news が存在しないので #blog に寄せる -->
+                <a class="btn ghost" href="#blog">Latest News</a>
               </div>
             </div>
           </article>
@@ -76,18 +79,8 @@
               <h2 class="title">2026</h2>
               <p class="sub">Tickets / Schedule</p>
               <div class="actions">
-                <a class="btn" href="#tour">See dates</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="slide" style="--bg:url('assets/hero-3.jpg')">
-            <div class="wrap slide-inner">
-              <p class="kicker">VIDEO</p>
-              <h2 class="title">NEW MV</h2>
-              <p class="sub">Watch on YouTube</p>
-              <div class="actions">
-                <a class="btn" href="#gallery">Watch</a>
+                <!-- #tour が存在しないので #contact に寄せる -->
+                <a class="btn" href="#contact">See dates</a>
               </div>
             </div>
           </article>
@@ -95,11 +88,11 @@
 
         <button class="navbtn prev" id="prev" aria-label="Previous slide">‹</button>
         <button class="navbtn next" id="next" aria-label="Next slide">›</button>
-
         <div class="dots" id="dots" aria-label="Slide dots"></div>
       </div>
+    </section>
 
-    <!-- DISCOGRAPHY / GALLERY / BLOG（枠） -->
+    <!-- DISCOGRAPHY -->
     <section class="section alt" id="discography">
       <div class="wrap section-head">
         <h2>DISCOGRAPHY</h2>
@@ -111,6 +104,7 @@
       </div>
     </section>
 
+    <!-- GALLERY -->
     <section class="section" id="gallery">
       <div class="wrap section-head">
         <h2>GALLERY</h2>
@@ -123,6 +117,7 @@
       </div>
     </section>
 
+    <!-- BLOG -->
     <section class="section alt" id="blog">
       <div class="wrap section-head">
         <h2>BLOG</h2>
@@ -141,35 +136,36 @@
       </div>
     </section>
 
-<!-- Contact -->
-<section class="section" id="contact">
-  <div class="wrap section-head">
-    <h2>CONTACT</h2>
-    <p class="muted">お問い合わせはこちらのフォームからお願いします。</p>
-  </div>
-
-  <div class="wrap newsletter">
-    <a
-      class="btn"
-      href="https://docs.google.com/forms/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/viewform?usp=header"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Contact Form
-    </a>
-  </div>
-</section>
-
-<a
-  href="https://docs.google.com/forms/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/viewform?usp=header"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Contact Form">
-  MAIL</a>
-
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="wrap section-head">
+        <h2>CONTACT</h2>
+        <p class="muted">お問い合わせはこちらのフォームからお願いします。</p>
       </div>
-    </div>
-  </footer>
+
+      <div class="wrap newsletter">
+        <a
+          class="btn"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/viewform?usp=header"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contact Form
+        </a>
+      </div>
+
+      <div class="wrap">
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/viewform?usp=header"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contact Form"
+        >
+          MAIL
+        </a>
+      </div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
