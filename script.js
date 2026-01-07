@@ -1,11 +1,16 @@
 if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
+  history.scrollRestoration = 'auto';
 }
 
-const forceTop = () => window.scrollTo(0, 0);
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) return;
+  if (location.hash) return;
 
-window.addEventListener('load', forceTop);
-window.addEventListener('pageshow', forceTop);
+  requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  });
+});
+
 
 
 
