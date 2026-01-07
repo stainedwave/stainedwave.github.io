@@ -1,13 +1,235 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>stainedwave</title>
+  <meta name="description" content="stainedwave Official Band Site" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>stainedwave</h1>
-  <p>Official band site</p>
-  <p>Coming soon.</p>
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="stainedwave Home">
+        <span class="brand-mark">stainedwave</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#tour">TOUR</a>
+        <a href="#music">MUSIC</a>
+        <a href="#videos">VIDEOS</a>
+        <a href="#about">ABOUT</a>
+        <a class="cta" href="#news">NEWS</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer-inner">
+        <a href="#tour">TOUR</a>
+        <a href="#music">MUSIC</a>
+        <a href="#videos">VIDEOS</a>
+        <a href="#about">ABOUT</a>
+        <a href="#news">NEWS</a>
+        <div class="drawer-links">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="YouTube">YT</a>
+          <a href="#" aria-label="X">X</a>
+          <a href="#" aria-label="Mail">MAIL</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Slider -->
+  <main>
+    <section class="hero" aria-label="Featured">
+      <div class="slider" id="slider">
+        <div class="slides">
+          <!-- 画像は assets/ に置いて差し替えでOK -->
+          <article class="slide is-active" style="--bg:url('assets/hero-1.jpg')">
+            <div class="wrap slide-inner">
+              <p class="kicker">NEW RELEASE</p>
+              <h1 class="title">LIFE ROLLS ON</h1>
+              <p class="sub">Available now</p>
+              <div class="actions">
+                <a class="btn" href="#music">Listen</a>
+                <a class="btn ghost" href="#news">Latest News</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="slide" style="--bg:url('assets/hero-2.jpg')">
+            <div class="wrap slide-inner">
+              <p class="kicker">TOUR</p>
+              <h2 class="title">2026</h2>
+              <p class="sub">Tickets / Schedule</p>
+              <div class="actions">
+                <a class="btn" href="#tour">See dates</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="slide" style="--bg:url('assets/hero-3.jpg')">
+            <div class="wrap slide-inner">
+              <p class="kicker">VIDEO</p>
+              <h2 class="title">NEW MV</h2>
+              <p class="sub">Watch on YouTube</p>
+              <div class="actions">
+                <a class="btn" href="#videos">Watch</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <button class="navbtn prev" id="prev" aria-label="Previous slide">‹</button>
+        <button class="navbtn next" id="next" aria-label="Next slide">›</button>
+
+        <div class="dots" id="dots" aria-label="Slide dots"></div>
+      </div>
+
+      <!-- 下に薄く区切りバー -->
+      <div class="hero-bar">
+        <div class="wrap hero-bar-inner">
+          <p>JOIN THE MAILING LIST</p>
+          <a class="link" href="#newsletter">Subscribe →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="section" id="news">
+      <div class="wrap section-head">
+        <h2>LATEST NEWS</h2>
+        <a class="link" href="#">View all →</a>
+      </div>
+
+      <div class="wrap grid cards">
+        <article class="card">
+          <a href="#">
+            <img src="assets/news-1.jpg" alt="News 1" loading="lazy" />
+            <div class="card-body">
+              <p class="date">2026.01.01</p>
+              <h3>New single released</h3>
+              <p class="excerpt">短い概要をここに。1〜2行で。</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="#">
+            <img src="assets/news-2.jpg" alt="News 2" loading="lazy" />
+            <div class="card-body">
+              <p class="date">2025.12.20</p>
+              <h3>Live schedule updated</h3>
+              <p class="excerpt">短い概要をここに。1〜2行で。</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="#">
+            <img src="assets/news-3.jpg" alt="News 3" loading="lazy" />
+            <div class="card-body">
+              <p class="date">2025.12.01</p>
+              <h3>New video out now</h3>
+              <p class="excerpt">短い概要をここに。1〜2行で。</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- TOUR -->
+    <section class="section alt" id="tour">
+      <div class="wrap section-head">
+        <h2>TOUR</h2>
+        <p class="muted">直近のライブ情報を並べるだけでも“それっぽさ”出る。</p>
+      </div>
+
+      <div class="wrap list">
+        <div class="row">
+          <div class="when">2026.02.15</div>
+          <div class="where">OSAKA / Club XXXX</div>
+          <a class="mini" href="#">Tickets</a>
+        </div>
+        <div class="row">
+          <div class="when">2026.03.08</div>
+          <div class="where">TOKYO / Venue YYYY</div>
+          <a class="mini" href="#">Tickets</a>
+        </div>
+        <div class="row">
+          <div class="when">2026.04.12</div>
+          <div class="where">NAGOYA / Hall ZZZZ</div>
+          <a class="mini" href="#">Tickets</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC / VIDEOS / ABOUT（ダミー枠） -->
+    <section class="section" id="music">
+      <div class="wrap section-head">
+        <h2>MUSIC</h2>
+        <p class="muted">Spotify / Apple Music / Bandcamp へのリンクを置く場所。</p>
+      </div>
+      <div class="wrap grid two">
+        <div class="panel">Latest Release（ジャケ画像＋リンク）</div>
+        <div class="panel">Discography（リスト）</div>
+      </div>
+    </section>
+
+    <section class="section alt" id="videos">
+      <div class="wrap section-head">
+        <h2>VIDEOS</h2>
+        <p class="muted">YouTube埋め込みもできる（後でやる）。</p>
+      </div>
+      <div class="wrap grid three">
+        <div class="panel">MV 1</div>
+        <div class="panel">MV 2</div>
+        <div class="panel">MV 3</div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap section-head">
+        <h2>ABOUT</h2>
+        <p class="muted">バンド紹介文（短めで渋く）。</p>
+      </div>
+      <div class="wrap prose">
+        <p>stainedwave は〜（ここに文章）</p>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section alt" id="newsletter">
+      <div class="wrap section-head">
+        <h2>MAILING LIST</h2>
+        <p class="muted">フォームは一旦“リンクだけ”でもOK。</p>
+      </div>
+      <div class="wrap newsletter">
+        <a class="btn" href="mailto:you@example.com">Contact / Subscribe</a>
+        <p class="tiny">※GoogleフォームやBandcampのメルマガ導線も後で追加できる。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p>© <span id="year"></span> stainedwave</p>
+      <div class="social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="YouTube">YT</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="mailto:you@example.com" aria-label="Mail">MAIL</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
