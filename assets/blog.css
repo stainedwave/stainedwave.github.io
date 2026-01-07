@@ -27,8 +27,14 @@
 }
 
 .backlink__text{
-  opacity:.8;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+               "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: .12em;
+  font-size: .75rem;
+  text-transform: uppercase;
 }
+
 
 .backlink:hover{
   border-color: rgba(255,255,255,.35);
