@@ -9,7 +9,7 @@ markdown: kramdown
 permalink: /blog/:year-:month-:day-:title/
 
 # future記事を表示（念のため）
-future: true
+future: false
 
 # デフォルト設定
 defaults:
