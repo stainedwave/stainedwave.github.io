@@ -1,3 +1,7 @@
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
 // ===== Mobile menu =====
 const hamburger = document.getElementById("hamburger");
 const drawer = document.getElementById("drawer");
