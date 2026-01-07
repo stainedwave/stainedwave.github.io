@@ -52,7 +52,6 @@ body{
   inset: 0;
   background: rgba(0,0,0,.95);
   z-index: 1000;
-
   opacity: 0;
   pointer-events: none;
   transition: opacity .3s ease;
@@ -65,13 +64,11 @@ body{
   gap: 20px;
 }
 
-/* 開いたとき */
-body.is-drawer-open .drawer {
+/* JSでの制御用クラス */
+.drawer.is-open {
   opacity: 1;
   pointer-events: auto;
 }
-
-
 
 .nav{ display:flex; gap:22px; align-items:center; }
 .nav a{
@@ -97,6 +94,8 @@ body.is-drawer-open .drawer {
   background:transparent;
   border-radius:10px;
   cursor:pointer;
+  position: relative;
+  z-index: 1100; /* Drawerより上にする */
 }
 .hamburger span{
   display:block; width:18px; height:2px;
@@ -106,7 +105,7 @@ body.is-drawer-open .drawer {
 }
 
 .drawer{
-  display:none;
+  /* display:noneを削除し、一貫した制御に統合 */
   border-top:1px solid var(--line);
   background: rgba(0,0,0,.9);
 }
@@ -316,8 +315,28 @@ body.is-drawer-open .drawer {
 @media (max-width: 760px){
   .nav{ display:none; }
   .hamburger{ display:block; }
-  .drawer{ display:block; max-height:0; overflow:hidden; transition:max-height .25s ease; }
-  .drawer.is-open{ max-height: 420px; }
+  
+  /* メニューの出し入れをクラスで行う設定 */
+  .drawer{ 
+    display:block; 
+    position: fixed;
+    top: 64px; /* ヘッダーの高さ分下げる */
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height .3s ease, opacity .3s ease; 
+    opacity: 0;
+    z-index: 1000;
+  }
+  
+  .drawer.is-open{ 
+    max-height: 500px; 
+    opacity: 1;
+    border-bottom: 1px solid var(--line);
+  }
+  
   .slides{ height: min(70vh, 520px); }
   .navbtn.prev{ left:8px; }
   .navbtn.next{ right:8px; }
