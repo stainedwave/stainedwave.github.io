@@ -1,0 +1,244 @@
+/* /assets/blog.css */
+/* “米津のDIARYっぽい” = 余白多め / 細線 / 画像は控えめ / タイポ強め */
+
+:root{
+  --bg: #0b0b0c;
+  --fg: #f3f3f3;
+  --muted: rgba(243,243,243,.65);
+  --faint: rgba(243,243,243,.12);
+  --line: rgba(243,243,243,.16);
+  --card: rgba(255,255,255,.03);
+  --card2: rgba(255,255,255,.06);
+  --radius: 14px;
+}
+
+html, body{
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.blog-header{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 18px 8px;
+}
+
+.blog-back{
+  display: inline-block;
+  text-decoration: none;
+  color: var(--muted);
+  letter-spacing: .06em;
+  font-size: 13px;
+}
+
+.blog-back:hover{ color: var(--fg); }
+
+.blog-title{
+  margin: 10px 0 16px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.blog-toolbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.blog-sort{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .12em;
+}
+
+.blog-sort-label{
+  opacity: .9;
+}
+
+.blog-sort-select{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  padding: 10px 34px 10px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: .08em;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* ▼擬似矢印（select自体にはつけられないので背景でそれっぽく） */
+.blog-sort{
+  position: relative;
+}
+.blog-sort::after{
+  content: "▾";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.blog-wrap{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 18px 44px;
+}
+
+.blog-list{
+  display: grid;
+  gap: 14px;
+  padding: 18px 0 22px;
+}
+
+.post-card{
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 18px;
+
+  text-decoration: none;
+  color: inherit;
+
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--card), transparent);
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.post-card:hover{
+  transform: translateY(-1px);
+  border-color: rgba(243,243,243,.28);
+  background: linear-gradient(180deg, var(--card2), transparent);
+}
+
+.post-body{
+  min-width: 0;
+}
+
+.post-meta{
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .14em;
+}
+
+.post-cat{
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+
+.post-date{
+  opacity: .9;
+}
+
+.post-title{
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.35;
+}
+
+.post-excerpt{
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.post-media{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.post-thumb{
+  width: 160px;
+  height: 104px;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid var(--faint);
+  filter: saturate(.95) contrast(.98);
+}
+
+.post-media.is-empty{
+  /* サムネ無しのときの余白 */
+  opacity: .25;
+}
+
+.pager{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .12em;
+}
+
+.pager-next{
+  text-decoration: none;
+  color: var(--fg);
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  border-radius: 999px;
+}
+
+.pager-next:hover{
+  border-color: rgba(243,243,243,.28);
+}
+
+.site-footer{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 18px 34px;
+  color: var(--muted);
+  border-top: 1px solid rgba(243,243,243,.08);
+}
+
+@media (max-width: 720px){
+  .post-card{
+    grid-template-columns: 1fr;
+  }
+  .post-media{
+    justify-content: flex-start;
+  }
+  .post-thumb{
+    width: 100%;
+    height: 180px;
+  }
+  .blog-title{
+    font-size: 24px;
+  }
+}
