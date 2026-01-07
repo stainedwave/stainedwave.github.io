@@ -16,11 +16,11 @@
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#tour">TOUR</a>
-        <a href="#music">MUSIC</a>
-        <a href="#videos">VIDEOS</a>
-        <a href="#about">ABOUT</a>
-        <a class="cta" href="#news">NEWS</a>
+        <a href="#profile">PROFILE</a>
+        <a href="#discography">DISCOGRAPHY</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#blog">BLOG</a>
+        <a class="cta" href="#contact">CONTACT</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -31,16 +31,16 @@
     <!-- Mobile drawer -->
     <div class="drawer" id="drawer" aria-hidden="true">
       <div class="drawer-inner">
-        <a href="#tour">TOUR</a>
-        <a href="#music">MUSIC</a>
-        <a href="#videos">VIDEOS</a>
-        <a href="#about">ABOUT</a>
-        <a href="#news">NEWS</a>
+        <a href="#profile">PROFILE</a>
+        <a href="#discography">DISCOGRAPHY</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#blog">BLOG</a>
+        <a href="#contact">CONTACT</a>
         <div class="drawer-links">
           <a href="#" aria-label="Instagram">IG</a>
           <a href="#" aria-label="YouTube">YT</a>
           <a href="#" aria-label="X">X</a>
-          <a href="#" aria-label="Mail">MAIL</a>
+          <a href="mailto:you@example.com" aria-label="Mail">MAIL</a>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
               <h1 class="title">LIFE ROLLS ON</h1>
               <p class="sub">Available now</p>
               <div class="actions">
-                <a class="btn" href="#music">Listen</a>
+                <a class="btn" href="#discography">Listen</a>
                 <a class="btn ghost" href="#news">Latest News</a>
               </div>
             </div>
@@ -81,7 +81,7 @@
               <h2 class="title">NEW MV</h2>
               <p class="sub">Watch on YouTube</p>
               <div class="actions">
-                <a class="btn" href="#videos">Watch</a>
+                <a class="btn" href="#gallery">Watch</a>
               </div>
             </div>
           </article>
@@ -171,11 +171,21 @@
       </div>
     </section>
 
-    <!-- MUSIC / VIDEOS / ABOUT（ダミー枠） -->
-    <section class="section" id="music">
+    <!-- PROFILE / DISCOGRAPHY / GALLERY / BLOG（枠） -->
+    <section class="section" id="profile">
       <div class="wrap section-head">
-        <h2>MUSIC</h2>
-        <p class="muted">Spotify / Apple Music / Bandcamp へのリンクを置く場所。</p>
+        <h2>PROFILE</h2>
+        <p class="muted">プロフィール文・メンバー紹介など。</p>
+      </div>
+      <div class="wrap prose">
+        <p>（ここにプロフィールを追加）</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="discography">
+      <div class="wrap section-head">
+        <h2>DISCOGRAPHY</h2>
+        <p class="muted">リリース一覧 / 配信リンク。</p>
       </div>
       <div class="wrap grid two">
         <div class="panel">Latest Release（ジャケ画像＋リンク）</div>
@@ -183,25 +193,45 @@
       </div>
     </section>
 
-    <section class="section alt" id="videos">
+    <section class="section" id="gallery">
       <div class="wrap section-head">
-        <h2>VIDEOS</h2>
-        <p class="muted">YouTube埋め込みもできる（後でやる）。</p>
+        <h2>GALLERY</h2>
+        <p class="muted">写真・アートワーク・ライブ写真など。</p>
       </div>
       <div class="wrap grid three">
-        <div class="panel">MV 1</div>
-        <div class="panel">MV 2</div>
-        <div class="panel">MV 3</div>
+        <div class="panel">Photo 1</div>
+        <div class="panel">Photo 2</div>
+        <div class="panel">Photo 3</div>
       </div>
     </section>
 
-    <section class="section" id="about">
+    <section class="section alt" id="blog">
       <div class="wrap section-head">
-        <h2>ABOUT</h2>
-        <p class="muted">バンド紹介文（短めで渋く）。</p>
+        <h2>BLOG</h2>
+        <p class="muted">更新ログ / 記事一覧。</p>
       </div>
-      <div class="wrap prose">
-        <p>stainedwave は〜（ここに文章）</p>
+      <div class="wrap grid cards">
+        <article class="card">
+          <a href="#">
+            <div class="card-body">
+              <p class="date">2026.01.01</p>
+              <h3>First post</h3>
+              <p class="excerpt">短い概要をここに。1〜2行で。</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="wrap section-head">
+        <h2>CONTACT</h2>
+        <p class="muted">問い合わせ / 連絡先。</p>
+      </div>
+      <div class="wrap newsletter">
+        <a class="btn" href="mailto:you@example.com">Mail us</a>
+        <p class="tiny">SNSのDMやフォーム導線も後で追加できます。</p>
       </div>
     </section>
 
