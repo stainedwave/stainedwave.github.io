@@ -1,4 +1,7 @@
-<!-- /blog/index.html -->
+---
+layout: none
+---
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -6,80 +9,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BLOG | lilyfield</title>
 
-  <!-- 既存の全体CSSがあるならそれを先に -->
-  <link rel="stylesheet" href="/assets/site.css" />
-  <!-- ブログ専用（下で書くCSS） -->
+  <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/assets/blog.css" />
 </head>
 
 <body>
-  <header class="blog-header">
-    <a class="blog-back" href="/">lilyfield</a>
-    <h1 class="blog-title">BLOG</h1>
+<header class="blog-header">
+  <a class="blog-back" href="/">lilyfield</a>
+  <h1 class="blog-title">BLOG</h1>
+</header>
 
-    <div class="blog-toolbar">
-      <div class="blog-sort">
-        <span class="blog-sort-label">SORT BY</span>
-        <select class="blog-sort-select" aria-label="Sort by category">
-          <option value="">SELECT</option>
-          <option value="diary">DIARY</option>
-          <option value="lyric">LYRIC</option>
-          <option value="other">OTHER</option>
-        </select>
-      </div>
-    </div>
-  </header>
+<main class="blog-wrap">
+  <section class="blog-list">
 
-  <main class="blog-wrap">
-    <section class="blog-list" aria-label="Blog posts">
-      <!-- 1件目 -->
-      <a class="post-card" href="/blog/2026-01-01-first-post/">
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="post-cat">DIARY</span>
-            <time class="post-date" datetime="2026-01-01">2026.01.01</time>
-          </div>
+    {% for post in site.posts %}
+    <a class="post-card" href="{{ post.url }}">
+      <span class="post-category">
+        {{ post.categories | first | upcase }}
+      </span>
 
-          <h2 class="post-title">First post</h2>
-          <p class="post-excerpt">短い概要をここに。1〜2行で。</p>
-        </div>
+      <time class="post-date">
+        {{ post.date | date: "%Y.%m.%d" }}
+      </time>
 
-        <div class="post-media" aria-hidden="true">
-          <img class="post-thumb" src="/assets/blog/thumbs/2026-01-01.jpg" alt="" loading="lazy" />
-        </div>
-      </a>
+      <h2 class="post-title">
+        {{ post.title }}
+      </h2>
 
-      <!-- 2件目（サムネなし例） -->
-      <a class="post-card" href="/blog/2026-01-08-second-post/">
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="post-cat">OTHER</span>
-            <time class="post-date" datetime="2026-01-08">2026.01.08</time>
-          </div>
+      <p class="post-excerpt">
+        {{ post.description }}
+      </p>
+    </a>
+    {% endfor %}
 
-          <h2 class="post-title">Second post</h2>
-          <p class="post-excerpt">テキストだけの記事も成立するように。サムネが無い場合は右側が空く。</p>
-        </div>
-
-        <div class="post-media is-empty" aria-hidden="true"></div>
-      </a>
-
-      <!-- カードを増やしていく -->
-    </section>
-
-    <nav class="pager" aria-label="Pagination">
-      <span class="pager-current">1 / 5</span>
-      <a class="pager-next" href="/blog/page/2/" aria-label="Next page">»</a>
-    </nav>
-  </main>
-
-  <footer class="site-footer">
-    <small>© <span id="y"></span> lilyfield</small>
-  </footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-    // もしカテゴリ絞り込みをURLでやるならここで location を変えるなども可
-  </script>
+  </section>
+</main>
 </body>
 </html>
