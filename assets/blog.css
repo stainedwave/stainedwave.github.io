@@ -1,5 +1,31 @@
 /* /assets/blog.css */
-/* “米津のDIARYっぽい” = 余白多め / 細線 / 画像は控えめ / タイポ強め */
+
+.backlink{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.55rem .85rem;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  text-decoration:none;
+  line-height:1;
+  backdrop-filter: blur(8px);
+}
+
+.backlink:hover{
+  border-color: rgba(255,255,255,.35);
+  transform: translateY(-1px);
+}
+
+.backlink__icon{
+  opacity:.8;
+}
+
+.backlink__text{
+  letter-spacing:.08em;
+  font-size:.9rem;
+}
+
 
 :root{
   --bg: #0b0b0c;
