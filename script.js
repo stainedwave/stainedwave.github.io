@@ -1,7 +1,13 @@
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
-window.scrollTo(0, 0);
+
+const forceTop = () => window.scrollTo(0, 0);
+
+window.addEventListener('load', forceTop);
+window.addEventListener('pageshow', forceTop);
+
+
 
 
 (() => {
