@@ -18,12 +18,19 @@
 }
 
 .backlink__icon{
-  opacity:.8;
+  font-size: .8rem;
+  opacity: .6;
+  transform: translateY(-1px);
 }
 
 .backlink__text{
-  letter-spacing:.08em;
-  font-size:.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+               "Segoe UI", "Arial", sans-serif;
+  font-size: .75rem;
+  letter-spacing: .28em;
+  font-weight: 500;
+  text-transform: uppercase;
+  opacity: .85;
 }
 
 
