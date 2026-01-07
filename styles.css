@@ -29,7 +29,7 @@ body{
 
 /* Header */
 .site-header{
-  position:sticky; top:0; z-index:50;
+  position:sticky; top:0; z-index:100; /* 高めに設定 */
   background: rgba(0,0,0,.75);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
@@ -44,30 +44,6 @@ body{
   letter-spacing:.22em;
   text-transform: none;
   font-size:14px;
-}
-
-/* ===== Mobile Drawer ===== */
-.drawer {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.95);
-  z-index: 1000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .3s ease;
-}
-
-.drawer-inner {
-  padding: 80px 24px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* JSでの制御用クラス */
-.drawer.is-open {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .nav{ display:flex; gap:22px; align-items:center; }
@@ -86,7 +62,7 @@ body{
   border-radius:999px;
 }
 
-/* Hamburger + Drawer */
+/* Hamburger */
 .hamburger{
   display:none;
   width:42px; height:42px;
@@ -95,7 +71,7 @@ body{
   border-radius:10px;
   cursor:pointer;
   position: relative;
-  z-index: 1100; /* Drawerより上にする */
+  z-index: 1100;
 }
 .hamburger span{
   display:block; width:18px; height:2px;
@@ -104,30 +80,10 @@ body{
   opacity:.9;
 }
 
-.drawer{
-  /* display:noneを削除し、一貫した制御に統合 */
-  border-top:1px solid var(--line);
-  background: rgba(0,0,0,.9);
+/* Drawer (Default Hidden) */
+.drawer {
+  display: none; /* PCでは出さない */
 }
-.drawer-inner{
-  padding:16px 0 22px;
-  width:min(1100px, 92vw); margin:0 auto;
-  display:grid; gap:10px;
-}
-.drawer a{
-  color:var(--fg);
-  text-decoration:none;
-  padding:12px 10px;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:12px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-size:12px;
-}
-.drawer-links{
-  display:flex; gap:10px; margin-top:6px;
-}
-.drawer-links a{ flex:1; text-align:center; }
 
 /* Hero */
 .hero{ border-top:none; }
@@ -221,16 +177,6 @@ body{
 }
 .dot.is-active{ background: rgba(255,255,255,.85); }
 
-.hero-bar{
-  border-top:1px solid var(--line);
-  background: rgba(255,255,255,.06);
-}
-.hero-bar-inner{
-  height:56px;
-  display:flex; align-items:center; justify-content:space-between;
-}
-.hero-bar-inner p{ margin:0; letter-spacing:.14em; font-size:12px; text-transform:uppercase; }
-
 /* Cards */
 .grid{ display:grid; gap:16px; }
 .grid.cards{ grid-template-columns: repeat(3, 1fr); }
@@ -248,30 +194,6 @@ body{
 .card h3{ margin:0 0 8px; font-size:14px; letter-spacing:.04em; }
 .excerpt{ margin:0; color:rgba(255,255,255,.78); font-size:13px; line-height:1.6; }
 
-/* Tour list */
-.list{ display:grid; gap:10px; }
-.row{
-  display:grid;
-  grid-template-columns: 120px 1fr auto;
-  gap:12px;
-  padding:14px 12px;
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:14px;
-  background: rgba(255,255,255,.03);
-}
-.when{ color:rgba(255,255,255,.82); letter-spacing:.10em; }
-.where{ color:rgba(255,255,255,.92); }
-.mini{
-  align-self:center;
-  color:var(--fg);
-  text-decoration:none;
-  border:1px solid rgba(255,255,255,.20);
-  padding:8px 12px;
-  border-radius:999px;
-  font-size:12px;
-}
-.mini:hover{ background: rgba(255,255,255,.06); }
-
 /* Panels */
 .grid.two{ grid-template-columns: 1fr 1fr; }
 .grid.three{ grid-template-columns: repeat(3, 1fr); }
@@ -282,10 +204,6 @@ body{
   color:rgba(255,255,255,.75);
   background: rgba(255,255,255,.02);
 }
-
-/* About */
-.prose{ max-width: 70ch; }
-.prose p{ margin:0; line-height:1.9; color:rgba(255,255,255,.82); }
 
 /* Footer */
 .footer{
@@ -298,46 +216,59 @@ body{
   font-size:12px;
   letter-spacing:.08em;
 }
-.social{ display:flex; gap:10px; }
-.social a{ color:rgba(255,255,255,.8); text-decoration:none; }
-.social a:hover{ text-decoration:underline; }
-.tiny{ color:var(--muted); font-size:12px; }
 
 /* Responsive */
 @media (max-width: 900px){
   .grid.cards{ grid-template-columns: 1fr; }
   .grid.two{ grid-template-columns: 1fr; }
   .grid.three{ grid-template-columns: 1fr; }
-  .card img{ height:200px; }
-  .row{ grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px){
   .nav{ display:none; }
   .hamburger{ display:block; }
   
-  /* メニューの出し入れをクラスで行う設定 */
   .drawer{ 
     display:block; 
     position: fixed;
-    top: 64px; /* ヘッダーの高さ分下げる */
+    top: 64px;
     left: 0;
     width: 100%;
-    height: auto;
     max-height: 0; 
     overflow: hidden; 
     transition: max-height .3s ease, opacity .3s ease; 
     opacity: 0;
-    z-index: 1000;
+    z-index: 900; /* ヘッダーより少し低く */
+    background: rgba(11, 11, 12, 0.98);
+    backdrop-filter: blur(10px);
   }
   
   .drawer.is-open{ 
-    max-height: 500px; 
+    max-height: 100vh; 
     opacity: 1;
     border-bottom: 1px solid var(--line);
   }
+
+  .drawer-inner {
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .drawer a {
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .drawer-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+  }
   
   .slides{ height: min(70vh, 520px); }
-  .navbtn.prev{ left:8px; }
-  .navbtn.next{ right:8px; }
 }
