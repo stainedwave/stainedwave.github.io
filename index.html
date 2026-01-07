@@ -9,7 +9,6 @@
 </head>
 
 <body>
-  <!-- Header -->
   <header class="site-header" id="top">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="lilyfield Home">
@@ -34,12 +33,11 @@
       </button>
     </div>
 
-    <!-- Mobile drawer -->
     <div class="drawer" id="drawer" aria-hidden="true">
       <div class="drawer-inner">
         <a href="#discography">DISCOGRAPHY</a>
         <a href="#gallery">GALLERY</a>
-        <a href="#blog">BLOG</a>
+        <a href="/blog/">BLOG</a>
         <a href="#lab">LAB</a>
         <a
           href="https://docs.google.com/forms/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/viewform?usp=header"
@@ -57,11 +55,9 @@
   </header>
 
   <main>
-    <!-- Hero / Slider -->
     <section class="hero" aria-label="Featured">
       <div class="slider" id="slider">
         <div class="slides">
-          <!-- 画像は assets/ に置いて差し替えでOK -->
           <article class="slide is-active" style="--bg:url('assets/hero-1.jpg')">
             <div class="wrap slide-inner">
               <p class="kicker">BAND</p>
@@ -85,7 +81,6 @@
       </div>
     </section>
 
-    <!-- DISCOGRAPHY -->
     <section class="section alt" id="discography">
       <div class="wrap section-head">
         <h2>DISCOGRAPHY</h2>
@@ -97,7 +92,6 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
     <section class="section" id="gallery">
       <div class="wrap section-head">
         <h2>GALLERY</h2>
@@ -110,7 +104,6 @@
       </div>
     </section>
 
-    <!-- BLOG -->
     <section class="section alt" id="blog">
       <div class="wrap section-head">
         <h2>BLOG</h2>
@@ -129,54 +122,51 @@
       </div>
     </section>
 
-<!-- LAB -->
-<section class="section" id="lab">
-  <div class="wrap section-head">
-    <h2>LAB</h2>
-    <p class="muted">サイドプロジェクト / 実験置き場。</p>
-  </div>
+    <section class="section" id="lab">
+      <div class="wrap section-head">
+        <h2>LAB</h2>
+        <p class="muted">サイドプロジェクト / 実験置き場。</p>
+      </div>
 
-  <div class="wrap grid two">
-    <article class="card">
-      <a href="#" target="_blank" rel="noopener noreferrer">
-        <div class="card-body">
-          <p class="kicker">SIDE PROJECT</p>
-          <h3>HANAMIZU</h3>
-          <p class="excerpt">
-            ここに概要（何を作ってるか / 何ができるか）を1〜2行で。
-          </p>
-          <p class="muted">Status: WIP / Links: GitHub・Demo など</p>
+      <div class="wrap grid two">
+        <article class="card">
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <div class="card-body">
+              <p class="kicker">SIDE PROJECT</p>
+              <h3>HANAMIZU</h3>
+              <p class="excerpt">
+                ここに概要（何を作ってるか / 何ができるか）を1〜2行で。
+              </p>
+              <p class="muted">Status: WIP / Links: GitHub・Demo など</p>
+            </div>
+          </a>
+        </article>
+
+        <div class="panel">
+          <p class="muted">メモ</p>
+          <p>開発ログ、スクショ、技術メモ、次やること…など自由に。</p>
         </div>
-      </a>
-    </article>
+      </div>
+    </section>
 
-    <div class="panel">
-      <p class="muted">メモ</p>
-      <p>開発ログ、スクショ、技術メモ、次やること…など自由に。</p>
-    </div>
-  </div>
-</section>
-
-
-    <!-- Contact -->
     <section class="section" id="contact">
-  <div class="wrap section-head">
-    <h2>CONTACT</h2>
-    <p class="muted">お問い合わせはこちらのフォームからお願いします。</p>
-  </div>
+      <div class="wrap section-head">
+        <h2>CONTACT</h2>
+        <p class="muted">お問い合わせはこちらのフォームからお願いします。</p>
+      </div>
 
-  <div class="wrap newsletter">
-    <a
-      class="btn"
-      href="https://docs.google.com/forms/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/viewform?usp=header"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Contact Form
-    </a>
-  </div>
-</section>
-
+      <div class="wrap newsletter">
+        <a
+          class="btn"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/viewform?usp=header"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contact Form
+        </a>
+      </div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
