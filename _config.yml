@@ -1,1 +1,20 @@
 
+title: lilyfield
+timezone: Asia/Tokyo
+
+# GitHub Pages 用（ローカルビルド不要なら明示）
+markdown: kramdown
+
+# ブログURLを「フラット型」にする（今の /blog/2026-01-07-first-post/ に合わせる）
+permalink: /blog/:year-:month-:day-:title/
+
+# future記事を表示（念のため）
+future: true
+
+# デフォルト設定
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
