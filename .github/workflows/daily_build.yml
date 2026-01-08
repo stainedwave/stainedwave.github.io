@@ -2,10 +2,12 @@ name: Daily Build for Future Posts
 
 on:
   schedule:
-    # 日本時間の 09:20（UTC 00:20）に実行
-    - cron: '20 0 * * *'
-  # 手動でテストしたい時のためのボタンをActionsタブに出します
+    # 日本時間の 09:35（UTC 00:35）に実行
+    - cron: '35 0 * * *'
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
