@@ -105,23 +105,25 @@
     </section>
 
     <section class="section alt" id="blog">
-      <div class="wrap section-head">
-        <h2>BLOG</h2>
-        <p class="muted">更新ログ / 記事一覧。</p>
-      </div>
-      <div class="wrap grid cards">
-        <article class="card">
-          <a href="#">
-            <div class="card-body">
-              <p class="date">2026.01.01</p>
-              <h3>First post</h3>
-              <p class="excerpt">短い概要をここに。1〜2行で。</p>
-            </div>
-          </a>
-        </article>
+  <div class="wrap section-head">
+    <h2>BLOG</h2>
+    <p class="muted">更新ログ / 記事一覧。</p>
+  </div>
+  <div class="wrap grid cards">
+    {% for post in site.posts limit:3 %}
+    <article class="card">
+      <a href="{{ post.url | relative_url }}">
+        <div class="card-body">
+          <p class="date">{{ post.date | date: "%Y.%m.%d" }}</p>
+          <h3>{{ post.title }}</h3>
+          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 50 }}</p>
+        </div>
+      </a>
+    </article>
+    {% endfor %}
       </div>
     </section>
-
+    
     <section class="section" id="lab">
       <div class="wrap section-head">
         <h2>LAB</h2>
