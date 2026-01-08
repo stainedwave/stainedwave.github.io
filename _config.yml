@@ -18,3 +18,7 @@ defaults:
       type: posts
     values:
       layout: post
+      
+#SEO対策サイトマップ
+plugins:
+  - jekyll-sitemap
