@@ -1,24 +1,29 @@
-
+# サイトの基本情報
 title: lilyfield
+description: "lilyfield Official Band Site"
+url: "https://lilyfieldofficial.com" # ここが最も重要です！
+baseurl: "" # ドメイン直下の場合は空にします
+
 timezone: Asia/Tokyo
 
-# GitHub Pages 用（ローカルビルド不要なら明示）
+# GitHub Pages 設定
 markdown: kramdown
+highlighter: rouge
 
-# ブログURLを「フラット型」にする（今の /blog/2026-01-07-first-post/ に合わせる）
+# パーマリンク設定（フラット型）
 permalink: /blog/:year-:month-:day-:title/
 
-# future記事を表示（念のため）
+# 記事の公開設定
 future: false
 
-# デフォルト設定
+# デフォルトのフロントマター設定
 defaults:
   - scope:
       path: ""
       type: posts
     values:
       layout: post
-      
-#SEO対策サイトマップ
+
+# SEO・サイトマップ用プラグイン
 plugins:
   - jekyll-sitemap
