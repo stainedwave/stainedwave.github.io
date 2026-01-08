@@ -272,3 +272,31 @@ body{
   
   .slides{ height: min(70vh, 520px); }
 }
+
+/* タイトルの文字を整列させる */
+.hero .title {
+  display: flex;
+  overflow: hidden; /* 枠の下から出てくるように見せる */
+}
+
+/* 一文字ずつの基本状態とアニメーション */
+.hero .title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%); /* 最初は下に見えない状態で待機 */
+  animation: reveal-text 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+  
+  /* --i の値を使って、表示タイミングを少しずつずらす魔法 */
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes reveal-text {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
