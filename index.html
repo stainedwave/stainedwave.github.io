@@ -111,25 +111,32 @@ layout: none
       </div>
     </section>
 
-    <section class="section alt" id="blog">
+<section class="section alt" id="blog">
   <div class="wrap section-head">
     <h2>BLOG</h2>
     <p class="muted">更新ログ / 記事一覧。</p>
   </div>
   <div class="wrap grid cards">
+
     {% for post in site.posts limit:3 %}
     <article class="card">
-      <a href="{{ post.url | relative_url }}">
+      <a href="{{ post.url }}">
         <div class="card-body">
           <p class="date">{{ post.date | date: "%Y.%m.%d" }}</p>
           <h3>{{ post.title }}</h3>
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 50 }}</p>
+          <p class="excerpt">
+            {{ post.description | default: post.excerpt | strip_html | truncate: 50 }}
+          </p>
         </div>
       </a>
     </article>
     {% endfor %}
-      </div>
-    </section>
+
+  </div>
+ 　 <div class="wrap" style="text-align: center; margin-top: 2rem;">
+    　<a href="/blog/" class="btn">VIEW ALL POSTS</a>
+  </div>
+　</section>
     
     <section class="section" id="lab">
       <div class="wrap section-head">
