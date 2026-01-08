@@ -4,10 +4,6 @@ layout: none
 <!doctype html>
 <html lang="ja">
 <head>
-
-<!doctype html>
-<html lang="ja">
-<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>lilyfield</title>
@@ -77,7 +73,6 @@ layout: none
             <div class="wrap slide-inner">
               <p class="kicker">UPDATES</p>
               <h2 class="title">Coming Soon</h2>
-              <p class="sub">Tickets / Schedule</p>
             </div>
           </article>
         </div>
@@ -91,8 +86,7 @@ layout: none
     <section class="section alt" id="discography">
       <div class="wrap section-head">
         <h2>DISCOGRAPHY</h2>
-        '<p class="muted">リリース一覧 / 配信リンク。</p>'
-      </div>
+        </div>
       <div class="wrap grid two">
         <div class="panel">Latest Release</div>
         <div class="panel">Discography</div>
@@ -102,8 +96,7 @@ layout: none
     <section class="section" id="gallery">
       <div class="wrap section-head">
         <h2>GALLERY</h2>
-        '<p class="muted">写真・アートワーク・ライブ写真など。</p>'
-      </div>
+        </div>
       <div class="wrap grid three">
         <div class="panel">Photo 1</div>
         <div class="panel">Photo 2</div>
@@ -111,39 +104,34 @@ layout: none
       </div>
     </section>
 
-<section class="section alt" id="blog">
-  <div class="wrap section-head">
-    <h2>BLOG</h2>
-    <p class="muted">更新ログ / 記事一覧。</p>
-  </div>
-  <div class="wrap grid cards">
-
-    {% for post in site.posts limit:3 %}
-    <article class="card">
-      <a href="{{ post.url }}">
-        <div class="card-body">
-          <p class="date">{{ post.date | date: "%Y.%m.%d" }}</p>
-          <h3>{{ post.title }}</h3>
-          <p class="excerpt">
-            {{ post.description | default: post.excerpt | strip_html | truncate: 50 }}
-          </p>
+    <section class="section alt" id="blog">
+      <div class="wrap section-head">
+        <h2>BLOG</h2>
         </div>
-      </a>
-    </article>
-    {% endfor %}
+      <div class="wrap grid cards">
+        {% for post in site.posts limit:3 %}
+        <article class="card">
+          <a href="{{ post.url }}">
+            <div class="card-body">
+              <p class="date">{{ post.date | date: "%Y.%m.%d" }}</p>
+              <h3>{{ post.title }}</h3>
+              <p class="excerpt">
+                {{ post.description | default: post.excerpt | strip_html | truncate: 50 }}
+              </p>
+            </div>
+          </a>
+        </article>
+        {% endfor %}
+      </div>
+      <div class="wrap" style="text-align: center; margin-top: 2rem;">
+        <a href="/blog/" class="btn">VIEW ALL POSTS</a>
+      </div>
+    </section>
 
-  </div>
- 　 <div class="wrap" style="text-align: center; margin-top: 2rem;">
-    　<a href="/blog/" class="btn">VIEW ALL POSTS</a>
-  </div>
-　</section>
-    
     <section class="section" id="lab">
       <div class="wrap section-head">
         <h2>LAB</h2>
-        <p class="muted">HANAMIZU</p>
-      </div>
-
+        </div>
       <div class="wrap grid two">
         <article class="card">
           <a href="#" target="_blank" rel="noopener noreferrer">
@@ -151,19 +139,18 @@ layout: none
               <p class="kicker">テクノユニット</p>
               <h3>HANAMIZU</h3>
               <p class="excerpt">
-                'ここに概要（何を作ってるか / 何ができるか）を1〜2行で。'
-              </p>
+                </p>
               <p class="muted">Status: WIP / Links: GitHub・Demo など</p>
             </div>
           </a>
         </article>
+      </div>
+    </section>
 
     <section class="section" id="contact">
       <div class="wrap section-head">
         <h2>CONTACT</h2>
-        <p class="muted">お問い合わせはこちらのフォームからお願いします。</p>
-      </div>
-
+        </div>
       <div class="wrap newsletter">
         <a
           class="btn"
