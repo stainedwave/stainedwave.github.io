@@ -292,11 +292,13 @@ layout: none
       const form = document.getElementById("contact-form");
       const thankYou = document.getElementById("thank-you");
       const backLink = document.getElementById("back-link");
+      const contactHeader = document.querySelector(".contact-header");
 
       form?.addEventListener("submit", () => {
         setTimeout(() => {
           form.style.display = "none";
           backLink.style.display = "none";
+          contactHeader.style.display = "none";
           thankYou.style.display = "block";
         }, 500);
       });
