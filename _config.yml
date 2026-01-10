@@ -6,6 +6,9 @@ baseurl: "" # ドメイン直下の場合は空にします
 
 timezone: Asia/Tokyo
 
+# 投稿の日時は必ず日本時間（+0900）で記載してください
+# 例: date: 2026-01-10 19:00:00 +0900
+
 # GitHub Pages 設定
 markdown: kramdown
 highlighter: rouge
@@ -14,6 +17,7 @@ highlighter: rouge
 permalink: /blog/:year-:month-:day-:title/
 
 # 記事の公開設定
+# future: false = 未来の日時が設定された投稿は表示しない（過去日時の投稿のみ即時反映）
 future: false
 
 # デフォルトのフロントマター設定
