@@ -146,6 +146,11 @@ layout: none
       line-height: 1.8;
       margin: 0;
     }
+
+    /* 非表示用 */
+    .is-hidden {
+      display: none !important;
+    }
   </style>
 </head>
 
@@ -296,9 +301,9 @@ layout: none
 
       form?.addEventListener("submit", () => {
         setTimeout(() => {
-          form.style.display = "none";
-          backLink.style.display = "none";
-          contactHeader.style.display = "none";
+          form.classList.add("is-hidden");
+          backLink.classList.add("is-hidden");
+          contactHeader.classList.add("is-hidden");
           thankYou.style.display = "block";
         }, 500);
       });
