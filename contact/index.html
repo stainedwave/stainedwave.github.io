@@ -1,0 +1,306 @@
+---
+layout: none
+---
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CONTACT | lilyfield</title>
+  <meta name="description" content="lilyfield お問い合わせフォーム" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .contact-section {
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 0;
+    }
+
+    .contact-container {
+      width: min(560px, 92vw);
+    }
+
+    .contact-header {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .contact-header h1 {
+      font-size: 24px;
+      letter-spacing: .12em;
+      margin: 0 0 12px;
+    }
+
+    .contact-header p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      letter-spacing: .1em;
+      color: var(--fg);
+    }
+
+    .form-group label .required {
+      color: #e74c3c;
+      margin-left: 4px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 15px;
+      color: var(--fg);
+      font-family: inherit;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    .form-group textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--fg);
+      font-size: 14px;
+      letter-spacing: .12em;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      font-family: inherit;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 32px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: .08em;
+    }
+
+    .back-link:hover {
+      color: var(--fg);
+    }
+
+    /* 送信完了メッセージ */
+    .thank-you {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .thank-you h2 {
+      font-size: 20px;
+      letter-spacing: .1em;
+      margin: 0 0 16px;
+    }
+
+    .thank-you p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="lilyfield Home">
+        <span class="brand-mark">lilyfield</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="/#discography">DISCOGRAPHY</a>
+        <a href="/#gallery">GALLERY</a>
+        <a href="/blog/">BLOG</a>
+        <a href="/#lab">LAB</a>
+        <a class="cta" href="/contact/">CONTACT</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer-inner">
+        <a href="/#discography">DISCOGRAPHY</a>
+        <a href="/#gallery">GALLERY</a>
+        <a href="/blog/">BLOG</a>
+        <a href="/#lab">LAB</a>
+        <a href="/contact/">CONTACT</a>
+
+        <div class="drawer-links">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="YouTube">YT</a>
+          <a href="#" aria-label="X">X</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-section">
+      <div class="contact-container">
+        <div class="contact-header">
+          <h1>CONTACT</h1>
+          <p>お問い合わせは下記フォームよりお願いいたします。<br>内容を確認後、ご連絡させていただきます。</p>
+        </div>
+
+        <!-- フォーム本体 -->
+        <form
+          id="contact-form"
+          class="contact-form"
+          action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdGlL5apMbBhfASYs0w0eGyMXp5WKRW9Q5f-5lsDzg4NBQBqA/formResponse"
+          method="POST"
+          target="hidden_iframe"
+        >
+          <div class="form-group">
+            <label>お名前<span class="required">*</span></label>
+            <input
+              type="text"
+              name="entry.468016623"
+              placeholder="山田 太郎"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>メールアドレス<span class="required">*</span></label>
+            <input
+              type="email"
+              name="entry.1735248524"
+              placeholder="example@email.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>件名</label>
+            <input
+              type="text"
+              name="entry.1991608101"
+              placeholder="お問い合わせの件名"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>お問い合わせ内容<span class="required">*</span></label>
+            <textarea
+              name="entry.1738375232"
+              placeholder="お問い合わせ内容をご記入ください"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">送信する</button>
+        </form>
+
+        <!-- 送信完了メッセージ -->
+        <div class="thank-you" id="thank-you">
+          <h2>送信完了</h2>
+          <p>お問い合わせありがとうございます。<br>内容を確認の上、ご連絡させていただきます。</p>
+          <a href="/" class="back-link">← トップページに戻る</a>
+        </div>
+
+        <a href="/" class="back-link" id="back-link">← トップページに戻る</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Google Formへの送信用の隠しiframe -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    // ハンバーガーメニュー
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const drawer = document.getElementById("drawer");
+
+      const setDrawer = (open) => {
+        if (!hamburger || !drawer) return;
+        hamburger.setAttribute("aria-expanded", String(open));
+        drawer.setAttribute("aria-hidden", String(!open));
+        if (open) {
+          drawer.classList.add("is-open");
+        } else {
+          drawer.classList.remove("is-open");
+        }
+      };
+
+      if (hamburger) {
+        hamburger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = drawer?.classList.contains("is-open");
+          setDrawer(!isOpen);
+        });
+      }
+
+      drawer?.addEventListener("click", (e) => {
+        const a = e.target.closest("a");
+        if (a) setDrawer(false);
+      });
+
+      // フォーム送信処理
+      const form = document.getElementById("contact-form");
+      const thankYou = document.getElementById("thank-you");
+      const backLink = document.getElementById("back-link");
+
+      form?.addEventListener("submit", () => {
+        setTimeout(() => {
+          form.style.display = "none";
+          backLink.style.display = "none";
+          thankYou.style.display = "block";
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html>
