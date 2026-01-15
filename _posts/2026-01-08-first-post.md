@@ -1,7 +1,7 @@
 ---
 title: "lilyfield"
 date: 2026-01-08 00:00:00 +0900
-published : false
+published: false
 ---
 
 前回のブログを読み返してみて、なんか個人の日記サイトみたいだなと苦笑いしてしまった。一応、ここは「lilyfield」というバンドのホームページなのですが
