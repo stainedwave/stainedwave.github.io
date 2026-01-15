@@ -1,7 +1,7 @@
 ---
 title: "インディーズ"
 date: 2026-01-09 19:00:00 +0900
-published : false
+published: false
 ---
 
 最近はもっぱらレコーディングに没頭してました。
