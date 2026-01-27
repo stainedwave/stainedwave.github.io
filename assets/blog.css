@@ -246,6 +246,7 @@ html, body{
   justify-content: space-between;
   gap: 12px;
 
+  margin-top: 32px;
   padding-top: 18px;
   border-top: 1px solid var(--line);
   color: var(--muted);
@@ -253,16 +254,28 @@ html, body{
   letter-spacing: .12em;
 }
 
+.pager-prev,
 .pager-next{
   text-decoration: none;
   color: var(--fg);
   border: 1px solid var(--line);
   padding: 10px 14px;
   border-radius: 999px;
+  min-width: 80px;
+  text-align: center;
 }
 
+.pager-prev:hover,
 .pager-next:hover{
   border-color: rgba(243,243,243,.28);
+}
+
+.pager-disabled{
+  visibility: hidden;
+}
+
+.pager-info{
+  color: var(--muted);
 }
 
 .site-footer{
