@@ -23,7 +23,7 @@ layout: none
   <section class="blog-list">
 
     {% for post in site.posts %}
-    <a class="post-card" href="{{ post.url }}">
+    <a class="post-card" href="{{ post.url }}" data-post>
       <span class="post-category">
         {{ post.categories | first | upcase }}
       </span>
@@ -43,6 +43,56 @@ layout: none
     {% endfor %}
 
   </section>
+
+  <nav class="pager" id="pager"></nav>
 </main>
+
+<script>
+(function () {
+  var PER_PAGE = 10;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('[data-post]'));
+  var total = cards.length;
+  var totalPages = Math.ceil(total / PER_PAGE);
+
+  if (totalPages <= 1) return;
+
+  function getPage() {
+    var m = location.hash.match(/^#page(\d+)$/);
+    var p = m ? parseInt(m[1], 10) : 1;
+    return Math.max(1, Math.min(p, totalPages));
+  }
+
+  function render() {
+    var page = getPage();
+    var start = (page - 1) * PER_PAGE;
+    var end = start + PER_PAGE;
+
+    cards.forEach(function (el, i) {
+      el.style.display = (i >= start && i < end) ? '' : 'none';
+    });
+
+    var pager = document.getElementById('pager');
+    var html = '<span class="pager-info">PAGE ' + page + ' / ' + totalPages + '</span>';
+
+    if (page > 1) {
+      html = '<a class="pager-prev" href="#page' + (page - 1) + '">&larr; PREV</a>' + html;
+    } else {
+      html = '<span class="pager-prev pager-disabled"></span>' + html;
+    }
+
+    if (page < totalPages) {
+      html += '<a class="pager-next" href="#page' + (page + 1) + '">NEXT &rarr;</a>';
+    } else {
+      html += '<span class="pager-next pager-disabled"></span>';
+    }
+
+    pager.innerHTML = html;
+    window.scrollTo(0, 0);
+  }
+
+  window.addEventListener('hashchange', render);
+  render();
+})();
+</script>
 </body>
 </html>
