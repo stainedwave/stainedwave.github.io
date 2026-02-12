@@ -62,6 +62,27 @@ body{
   border-radius:999px;
 }
 
+.nav-sns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 10px;
+  padding-left: 16px;
+  border-left: 1px solid rgba(255,255,255,.15);
+}
+
+.nav-sns a {
+  color: var(--fg);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.nav-sns a:hover {
+  opacity: 1;
+}
+
 /* Hamburger */
 .hamburger{
   display:none;
@@ -286,6 +307,20 @@ body{
     margin-top: 20px;
     display: flex;
     gap: 20px;
+  }
+
+  .drawer-links a {
+    color: var(--fg);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    border-bottom: none;
+    padding: 0;
+  }
+
+  .drawer-links a:hover {
+    opacity: 1;
   }
   
   .slides{ height: min(70vh, 520px); }
