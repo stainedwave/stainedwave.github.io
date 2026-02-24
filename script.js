@@ -94,8 +94,9 @@ async function loadHanamizuVideos() {
       return;
     }
 
-    // Step 3: Render videos
-    container.innerHTML = videosData.items.map(item => {
+    // Step 3: Render videos (XSS対策: textContent使用)
+    container.innerHTML = '';
+    videosData.items.forEach(item => {
       const video = item.snippet;
       const videoId = video.resourceId.videoId;
       const thumbnail = video.thumbnails.high?.url || video.thumbnails.medium?.url || video.thumbnails.default?.url;
@@ -106,29 +107,63 @@ async function loadHanamizuVideos() {
         day: 'numeric'
       });
 
-      return `
-        <article class="youtube-card">
-          <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener noreferrer">
-            <div class="youtube-thumb">
-              <img src="${thumbnail}" alt="${title}" loading="lazy">
-              <div class="youtube-play"></div>
-            </div>
-            <div class="youtube-card-body">
-              <h4>${title}</h4>
-              <p class="youtube-date">${publishedAt}</p>
-            </div>
-          </a>
-        </article>
-      `;
-    }).join('');
+      const article = document.createElement('article');
+      article.className = 'youtube-card';
+
+      const link = document.createElement('a');
+      link.href = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+
+      const thumbDiv = document.createElement('div');
+      thumbDiv.className = 'youtube-thumb';
+
+      const img = document.createElement('img');
+      img.src = thumbnail;
+      img.alt = title;
+      img.loading = 'lazy';
+
+      const playDiv = document.createElement('div');
+      playDiv.className = 'youtube-play';
+
+      thumbDiv.appendChild(img);
+      thumbDiv.appendChild(playDiv);
+
+      const bodyDiv = document.createElement('div');
+      bodyDiv.className = 'youtube-card-body';
+
+      const h4 = document.createElement('h4');
+      h4.textContent = title;
+
+      const dateP = document.createElement('p');
+      dateP.className = 'youtube-date';
+      dateP.textContent = publishedAt;
+
+      bodyDiv.appendChild(h4);
+      bodyDiv.appendChild(dateP);
+
+      link.appendChild(thumbDiv);
+      link.appendChild(bodyDiv);
+      article.appendChild(link);
+      container.appendChild(article);
+    });
 
   } catch (error) {
     console.error('YouTube API Error:', error);
-    container.innerHTML = `
-      <div class="youtube-error">
-        <p>動画の読み込みに失敗しました</p>
-        <p style="font-size: 11px; margin-top: 8px;">${error.message}</p>
-      </div>
-    `;
+    // XSS対策: textContent使用
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'youtube-error';
+
+    const p1 = document.createElement('p');
+    p1.textContent = '動画の読み込みに失敗しました';
+
+    const p2 = document.createElement('p');
+    p2.style.cssText = 'font-size: 11px; margin-top: 8px;';
+    p2.textContent = error.message;
+
+    errorDiv.appendChild(p1);
+    errorDiv.appendChild(p2);
+    container.innerHTML = '';
+    container.appendChild(errorDiv);
   }
 }
