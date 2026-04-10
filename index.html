@@ -22,7 +22,6 @@ layout: none
       <nav class="nav" aria-label="Primary">
         <a href="#discography">DISCOGRAPHY</a>
         <a href="#gallery">GALLERY</a>
-        <a href="/blog/">BLOG</a>
         <a href="#lab">LAB</a>
         <a class="cta" href="/contact/">CONTACT</a>
         <div class="nav-sns">
@@ -44,7 +43,6 @@ layout: none
       <div class="drawer-inner">
         <a href="#discography">DISCOGRAPHY</a>
         <a href="#gallery">GALLERY</a>
-        <a href="/blog/">BLOG</a>
         <a href="#lab">LAB</a>
         <a href="/contact/">CONTACT</a>
 
@@ -107,30 +105,6 @@ layout: none
         <div class="panel">Photo 1</div>
         <div class="panel">Photo 2</div>
         <div class="panel">Photo 3</div>
-      </div>
-    </section>
-
-    <section class="section alt" id="blog">
-      <div class="wrap section-head">
-        <h2>BLOG</h2>
-        </div>
-      <div class="wrap grid cards">
-        {% for post in site.posts limit:3 %}
-        <article class="card">
-          <a href="{{ post.url }}">
-            <div class="card-body">
-              <p class="date">{{ post.date | date: "%Y.%m.%d" }}</p>
-              <h3>{{ post.title }}</h3>
-              <p class="excerpt">
-                {{ post.description | default: post.excerpt | strip_html | truncate: 50 }}
-              </p>
-            </div>
-          </a>
-        </article>
-        {% endfor %}
-      </div>
-      <div class="wrap" style="text-align: center; margin-top: 2rem;">
-        <a href="/blog/" class="btn">VIEW ALL POSTS</a>
       </div>
     </section>
 

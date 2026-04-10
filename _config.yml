@@ -28,6 +28,9 @@ defaults:
     values:
       layout: post
 
+# ブログを一時的に非公開（公開時はこの行を削除）
+exclude: [blog, _posts]
+
 # SEO・サイトマップ用プラグイン
 plugins:
   - jekyll-sitemap
