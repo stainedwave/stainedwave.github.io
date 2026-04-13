@@ -178,12 +178,12 @@ function initVoiceForm() {
   const charCurrent = document.getElementById('voice-char-current');
   const successDiv = document.getElementById('voice-success');
 
-  if (!form || !messageInput) return;
+  if (!form || !messageInput || !charCurrent) return;
 
   // Character count
   messageInput.addEventListener('input', () => {
     const len = messageInput.value.length;
-    charCurrent.textContent = len;
+    if (charCurrent) charCurrent.textContent = len;
   });
 
   // Form submit
