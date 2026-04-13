@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----- HANAMIZU YouTube Integration -----
   loadHanamizuVideos();
 
-  // ----- Marshmallow Form -----
-  initMarshmallowForm();
+  // ----- VOICE Form -----
+  initVoiceForm();
 });
 
 // YouTube Data API Configuration
@@ -171,12 +171,12 @@ async function loadHanamizuVideos() {
   }
 }
 
-// Marshmallow Form Handler
-function initMarshmallowForm() {
-  const form = document.getElementById('marshmallow-form');
-  const messageInput = document.getElementById('mallow-message');
-  const charCurrent = document.getElementById('char-current');
-  const successDiv = document.getElementById('marshmallow-success');
+// VOICE Form Handler
+function initVoiceForm() {
+  const form = document.getElementById('voice-form');
+  const messageInput = document.getElementById('voice-message');
+  const charCurrent = document.getElementById('voice-char-current');
+  const successDiv = document.getElementById('voice-success');
 
   if (!form || !messageInput) return;
 
@@ -184,11 +184,6 @@ function initMarshmallowForm() {
   messageInput.addEventListener('input', () => {
     const len = messageInput.value.length;
     charCurrent.textContent = len;
-    if (len > 900) {
-      charCurrent.style.color = '#ff6b6b';
-    } else {
-      charCurrent.style.color = '';
-    }
   });
 
   // Form submit
@@ -208,7 +203,6 @@ function initMarshmallowForm() {
       setTimeout(() => {
         form.reset();
         charCurrent.textContent = '0';
-        charCurrent.style.color = '';
         successDiv.style.display = 'none';
         form.style.display = 'flex';
       }, 3000);

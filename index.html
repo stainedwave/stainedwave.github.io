@@ -97,6 +97,38 @@ layout: none
       </div>
     </section>
 
+    <!-- VOICE Section -->
+    <section class="section" id="voice">
+      <div class="wrap section-head">
+        <h2>VOICE</h2>
+      </div>
+      <div class="wrap voice-section">
+        <div class="voice-card">
+          <div class="voice-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+          </div>
+          <div class="voice-header">
+            <p class="voice-title">Send us your voice!</p>
+            <p class="voice-desc">匿名でメッセージを送れます。質問・感想なんでもOK！</p>
+          </div>
+          <form id="voice-form" class="voice-form" action="https://docs.google.com/forms/d/e/1FAIpQLScIUEzqFBuSS_JLinDOl4Kd0_mAgp_dmNbCIF2fZtyLEF-P9Q/formResponse" method="POST" target="voice-iframe">
+            <div class="voice-inputs">
+              <input type="text" id="voice-name" name="entry.75513121" placeholder="Name (optional)" maxlength="100" class="voice-input">
+              <textarea id="voice-message" name="entry.866878342" placeholder="Your message..." maxlength="1000" required class="voice-textarea"></textarea>
+            </div>
+            <div class="voice-footer">
+              <div class="voice-char-count"><span id="voice-char-current">0</span>/1000</div>
+              <button type="submit" class="voice-submit">Send</button>
+            </div>
+          </form>
+          <div id="voice-success" class="voice-success" style="display:none;">
+            <p>Thanks for your voice!</p>
+          </div>
+        </div>
+      </div>
+      <iframe name="voice-iframe" style="display:none;"></iframe>
+    </section>
+
     <section class="section" id="gallery">
       <div class="wrap section-head">
         <h2>GALLERY</h2>
@@ -130,37 +162,6 @@ layout: none
           <div class="youtube-loading">動画を読み込み中...</div>
         </div>
       </div>
-    </section>
-
-    <!-- Marshmallow Section -->
-    <section class="section alt" id="marshmallow">
-      <div class="wrap section-head">
-        <h2>MARSHMALLOW</h2>
-      </div>
-      <div class="wrap marshmallow-section">
-        <div class="marshmallow-card">
-          <div class="marshmallow-header">
-            <p class="marshmallow-title">ましゅまろ</p>
-            <p class="marshmallow-desc">匿名でメッセージを送れます。気軽にどうぞ！</p>
-          </div>
-          <form id="marshmallow-form" class="marshmallow-form" action="https://docs.google.com/forms/d/e/1FAIpQLScIUEzqFBuSS_JLinDOl4Kd0_mAgp_dmNbCIF2fZtyLEF-P9Q/formResponse" method="POST" target="hidden-iframe">
-            <div class="form-group">
-              <label for="mallow-name">お名前（任意）</label>
-              <input type="text" id="mallow-name" name="entry.75513121" placeholder="匿名でもOK" maxlength="100">
-            </div>
-            <div class="form-group">
-              <label for="mallow-message">メッセージ <span class="required">*</span></label>
-              <textarea id="mallow-message" name="entry.866878342" placeholder="メッセージを入力..." maxlength="1000" required></textarea>
-              <div class="char-count"><span id="char-current">0</span> / 1000</div>
-            </div>
-            <button type="submit" class="btn marshmallow-submit">送信する</button>
-          </form>
-          <div id="marshmallow-success" class="marshmallow-success" style="display:none;">
-            <p>送信しました！ありがとうございます</p>
-          </div>
-        </div>
-      </div>
-      <iframe name="hidden-iframe" style="display:none;"></iframe>
     </section>
 
     <section class="section" id="contact">
