@@ -46,6 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ----- HANAMIZU YouTube Integration -----
   loadHanamizuVideos();
+
+  // ----- Marshmallow Form -----
+  initMarshmallowForm();
 });
 
 // YouTube Data API Configuration
@@ -166,4 +169,49 @@ async function loadHanamizuVideos() {
     container.innerHTML = '';
     container.appendChild(errorDiv);
   }
+}
+
+// Marshmallow Form Handler
+function initMarshmallowForm() {
+  const form = document.getElementById('marshmallow-form');
+  const messageInput = document.getElementById('mallow-message');
+  const charCurrent = document.getElementById('char-current');
+  const successDiv = document.getElementById('marshmallow-success');
+
+  if (!form || !messageInput) return;
+
+  // Character count
+  messageInput.addEventListener('input', () => {
+    const len = messageInput.value.length;
+    charCurrent.textContent = len;
+    if (len > 900) {
+      charCurrent.style.color = '#ff6b6b';
+    } else {
+      charCurrent.style.color = '';
+    }
+  });
+
+  // Form submit
+  form.addEventListener('submit', (e) => {
+    const message = messageInput.value.trim();
+    if (!message) {
+      e.preventDefault();
+      return;
+    }
+
+    // Show success message after short delay
+    setTimeout(() => {
+      form.style.display = 'none';
+      successDiv.style.display = 'block';
+
+      // Reset and show form again after 3 seconds
+      setTimeout(() => {
+        form.reset();
+        charCurrent.textContent = '0';
+        charCurrent.style.color = '';
+        successDiv.style.display = 'none';
+        form.style.display = 'flex';
+      }, 3000);
+    }, 500);
+  });
 }

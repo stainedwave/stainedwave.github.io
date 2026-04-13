@@ -132,6 +132,37 @@ layout: none
       </div>
     </section>
 
+    <!-- Marshmallow Section -->
+    <section class="section alt" id="marshmallow">
+      <div class="wrap section-head">
+        <h2>MARSHMALLOW</h2>
+      </div>
+      <div class="wrap marshmallow-section">
+        <div class="marshmallow-card">
+          <div class="marshmallow-header">
+            <p class="marshmallow-title">ましゅまろ</p>
+            <p class="marshmallow-desc">匿名でメッセージを送れます。気軽にどうぞ！</p>
+          </div>
+          <form id="marshmallow-form" class="marshmallow-form" action="https://docs.google.com/forms/d/e/1FAIpQLScIUEzqFBuSS_JLinDOl4Kd0_mAgp_dmNbCIF2fZtyLEF-P9Q/formResponse" method="POST" target="hidden-iframe">
+            <div class="form-group">
+              <label for="mallow-name">お名前（任意）</label>
+              <input type="text" id="mallow-name" name="entry.75513121" placeholder="匿名でもOK" maxlength="100">
+            </div>
+            <div class="form-group">
+              <label for="mallow-message">メッセージ <span class="required">*</span></label>
+              <textarea id="mallow-message" name="entry.866878342" placeholder="メッセージを入力..." maxlength="1000" required></textarea>
+              <div class="char-count"><span id="char-current">0</span> / 1000</div>
+            </div>
+            <button type="submit" class="btn marshmallow-submit">送信する</button>
+          </form>
+          <div id="marshmallow-success" class="marshmallow-success" style="display:none;">
+            <p>送信しました！ありがとうございます</p>
+          </div>
+        </div>
+      </div>
+      <iframe name="hidden-iframe" style="display:none;"></iframe>
+    </section>
+
     <section class="section" id="contact">
       <div class="wrap section-head">
         <h2>CONTACT</h2>
