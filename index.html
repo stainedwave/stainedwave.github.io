@@ -87,6 +87,33 @@ layout: none
       </div>
     </section>
 
+    <!-- VOICE Section -->
+    <section class="section" id="voice">
+      <div class="wrap voice-section">
+        <div class="voice-card">
+          <div class="voice-emoji">💬</div>
+          <div class="voice-header">
+            <p class="voice-title">VOICE</p>
+            <p class="voice-desc">匿名でメッセージを送れます。質問・感想なんでもOK！</p>
+          </div>
+          <form id="voice-form" class="voice-form" action="https://docs.google.com/forms/d/e/1FAIpQLScIUEzqFBuSS_JLinDOl4Kd0_mAgp_dmNbCIF2fZtyLEF-P9Q/formResponse" method="POST" target="voice-iframe">
+            <div class="voice-inputs">
+              <input type="text" id="voice-name" name="entry.75513121" placeholder="お名前（任意）" maxlength="100" class="voice-input">
+              <textarea id="voice-message" name="entry.866878342" placeholder="メッセージを入力..." maxlength="1000" required class="voice-textarea"></textarea>
+            </div>
+            <div class="voice-footer">
+              <div class="voice-char-count"><span id="voice-char-current">0</span>/1000</div>
+              <button type="submit" class="voice-submit">送信</button>
+            </div>
+          </form>
+          <div id="voice-success" class="voice-success" style="display:none;">
+            <p>送信しました！</p>
+          </div>
+        </div>
+      </div>
+      <iframe name="voice-iframe" style="display:none;"></iframe>
+    </section>
+
     <section class="section alt" id="discography">
       <div class="wrap section-head">
         <h2>DISCOGRAPHY</h2>
@@ -95,38 +122,6 @@ layout: none
         <div class="panel">Latest Release</div>
         <div class="panel">Discography</div>
       </div>
-    </section>
-
-    <!-- VOICE Section -->
-    <section class="section" id="voice">
-      <div class="wrap section-head">
-        <h2>VOICE</h2>
-      </div>
-      <div class="wrap voice-section">
-        <div class="voice-card">
-          <div class="voice-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-          </div>
-          <div class="voice-header">
-            <p class="voice-title">Send us your voice!</p>
-            <p class="voice-desc">匿名でメッセージを送れます。質問・感想なんでもOK！</p>
-          </div>
-          <form id="voice-form" class="voice-form" action="https://docs.google.com/forms/d/e/1FAIpQLScIUEzqFBuSS_JLinDOl4Kd0_mAgp_dmNbCIF2fZtyLEF-P9Q/formResponse" method="POST" target="voice-iframe">
-            <div class="voice-inputs">
-              <input type="text" id="voice-name" name="entry.75513121" placeholder="Name (optional)" maxlength="100" class="voice-input">
-              <textarea id="voice-message" name="entry.866878342" placeholder="Your message..." maxlength="1000" required class="voice-textarea"></textarea>
-            </div>
-            <div class="voice-footer">
-              <div class="voice-char-count"><span id="voice-char-current">0</span>/1000</div>
-              <button type="submit" class="voice-submit">Send</button>
-            </div>
-          </form>
-          <div id="voice-success" class="voice-success" style="display:none;">
-            <p>Thanks for your voice!</p>
-          </div>
-        </div>
-      </div>
-      <iframe name="voice-iframe" style="display:none;"></iframe>
     </section>
 
     <section class="section" id="gallery">
