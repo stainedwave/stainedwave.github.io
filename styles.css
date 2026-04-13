@@ -511,136 +511,157 @@ body{
   }
 }
 
-/* VOICE Section - Pop Style */
+/* VOICE Section - Chic Dark Style */
 .voice-section {
-  max-width: 480px;
+  max-width: 540px;
   margin: 0 auto;
 }
 
 .voice-card {
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  background: var(--card);
+  border: 1px solid var(--line);
   border-radius: 24px;
-  padding: 32px;
-  box-shadow: 0 20px 50px rgba(99, 102, 241, 0.25);
+  padding: 40px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ほのかな光の演出 */
+.voice-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
 }
 
 .voice-emoji {
-  font-size: 40px;
-  margin-bottom: 12px;
+  font-size: 24px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  filter: grayscale(1);
 }
 
 .voice-header {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .voice-title {
-  margin: 0 0 8px;
-  font-size: 26px;
+  margin: 0 0 6px;
+  font-size: 22px;
   font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.1em;
+  color: var(--fg);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 .voice-desc {
   margin: 0;
-  color: rgba(255,255,255,0.9);
-  font-size: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.05em;
 }
 
 .voice-form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px;
 }
 
 .voice-inputs {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .voice-input,
 .voice-textarea {
   width: 100%;
-  background: rgba(255,255,255,0.95);
-  border: none;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 14px 16px;
-  color: #333;
-  font-size: 15px;
+  padding: 14px 18px;
+  color: var(--fg);
+  font-size: 14px;
   font-family: inherit;
   box-sizing: border-box;
+  transition: all 0.2s ease;
 }
 
 .voice-input::placeholder,
 .voice-textarea::placeholder {
-  color: #888;
+  color: #555;
 }
 
 .voice-input:focus,
 .voice-textarea:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.2);
 }
 
 .voice-textarea {
-  min-height: 110px;
+  min-height: 120px;
   resize: vertical;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .voice-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .voice-char-count {
-  font-size: 13px;
-  color: rgba(255,255,255,0.8);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
 }
 
 .voice-submit {
-  background: #fff;
-  color: #6366f1;
+  background: var(--fg);
+  color: #000;
   border: none;
   border-radius: 999px;
-  padding: 14px 36px;
-  font-size: 15px;
+  padding: 12px 40px;
+  font-size: 13px;
   font-weight: 700;
+  letter-spacing: 0.1em;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: all 0.2s ease;
 }
 
 .voice-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
 .voice-submit:active {
-  transform: scale(0.97);
+  transform: translateY(0);
 }
 
 .voice-success {
   text-align: center;
-  padding: 50px 20px;
+  padding: 60px 20px;
 }
 
 .voice-success p {
   margin: 0;
-  font-size: 22px;
-  font-weight: 600;
-  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--fg);
+  letter-spacing: 0.1em;
 }
 
 @media (max-width: 760px) {
   .voice-card {
-    padding: 24px 20px;
+    padding: 32px 24px;
     border-radius: 20px;
   }
 
   .voice-title {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
