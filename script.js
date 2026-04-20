@@ -15,12 +15,15 @@ window.addEventListener('pageshow', (e) => {
   if (isReload) {
     const saved = sessionStorage.getItem('scrollPos');
     if (saved !== null) {
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: parseInt(saved), left: 0, behavior: 'auto' });
-      });
+      const pos = parseInt(saved);
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo({ top: pos, left: 0, behavior: 'instant' });
+        document.documentElement.style.scrollBehavior = '';
+      }));
     }
   } else if (!e.persisted) {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }
 
   sessionStorage.removeItem('scrollPos');
