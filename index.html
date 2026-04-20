@@ -132,8 +132,8 @@ layout: none
         <a href="/gallery/" class="link" style="font-size:12px;letter-spacing:.1em;">VIEW ALL →</a>
       </div>
       <div class="wrap gallery-preview-grid">
-        {% assign gallery_posts = site.gallery | sort: "date" | reverse | limit: 3 %}
-        {% for post in gallery_posts %}
+        {% assign gallery_posts = site.gallery | sort: "date" | reverse %}
+        {% for post in gallery_posts limit:3 %}
         <a href="{{ post.url }}" class="gallery-preview-item">
           <div class="gallery-preview-thumb">
             <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" />
