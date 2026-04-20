@@ -861,24 +861,36 @@ body{
 }
 
 .gallery-post-hero {
-  width: 100%;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: min(680px, 92vw);
+  margin: 48px auto 0;
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .gallery-post-image {
   width: 100%;
-  max-width: 900px;
   height: auto;
   display: block;
-  margin: 0 auto;
 }
 
 .gallery-post-body {
-  padding-top: 40px;
-  max-width: 680px;
+  width: min(680px, 92vw);
+  margin: 0 auto;
+  padding-top: 32px;
+}
+
+@media (max-width: 600px) {
+  .gallery-post-hero {
+    width: 100%;
+    margin-top: 0;
+    border-radius: 0;
+  }
+
+  .gallery-post-body {
+    width: 92vw;
+    margin: 0 auto;
+  }
 }
 
 .backlink {
