@@ -20,6 +20,12 @@ permalink: /blog/:year-:month-:day-:title/
 # future: false = 未来の日時が設定された投稿は表示しない（過去日時の投稿のみ即時反映）
 future: false
 
+# コレクション設定
+collections:
+  gallery:
+    output: true
+    permalink: /gallery/:name/
+
 # デフォルトのフロントマター設定
 defaults:
   - scope:
@@ -27,6 +33,11 @@ defaults:
       type: posts
     values:
       layout: post
+  - scope:
+      path: ""
+      type: gallery
+    values:
+      layout: gallery-post
 
 # ブログを一時的に非公開（公開時はこの行を削除）
 exclude: [blog, _posts]

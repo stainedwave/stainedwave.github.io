@@ -129,11 +129,20 @@ layout: none
     <section class="section" id="gallery">
       <div class="wrap section-head">
         <h2>GALLERY</h2>
-        </div>
-      <div class="wrap grid three">
-        <div class="panel">Photo 1</div>
-        <div class="panel">Photo 2</div>
-        <div class="panel">Photo 3</div>
+        <a href="/gallery/" class="link" style="font-size:12px;letter-spacing:.1em;">VIEW ALL →</a>
+      </div>
+      <div class="wrap gallery-preview-grid">
+        {% assign gallery_posts = site.gallery | sort: "date" | reverse | limit: 3 %}
+        {% for post in gallery_posts %}
+        <a href="{{ post.url }}" class="gallery-preview-item">
+          <div class="gallery-preview-thumb">
+            <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" />
+            <div class="gallery-preview-overlay">
+              <span class="gallery-preview-title">{{ post.title }}</span>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
       </div>
     </section>
 
