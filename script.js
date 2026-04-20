@@ -1,13 +1,29 @@
 if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'auto';
+  history.scrollRestoration = 'manual';
 }
 
+window.addEventListener('beforeunload', () => {
+  sessionStorage.setItem('scrollPos', window.scrollY);
+});
+
 window.addEventListener('pageshow', (e) => {
-  if (e.persisted) return;
   if (location.hash) return;
-  requestAnimationFrame(() => {
+
+  const navEntry = performance.getEntriesByType('navigation')[0];
+  const isReload = navEntry?.type === 'reload';
+
+  if (isReload) {
+    const saved = sessionStorage.getItem('scrollPos');
+    if (saved !== null) {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: parseInt(saved), left: 0, behavior: 'auto' });
+      });
+    }
+  } else if (!e.persisted) {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-  });
+  }
+
+  sessionStorage.removeItem('scrollPos');
 });
 
 // すべてのHTML要素が読み込まれてから実行されるようにガードします
